@@ -1,0 +1,7 @@
+{
+  "name": "Autoescola Direção Certa",
+  "description": "Website oficial da Autoescola Direção Certa em Maceió – AL. 1ª habilitação, aulas práticas, categoria AB, pacotes de aulas e cursos profissionalizantes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
