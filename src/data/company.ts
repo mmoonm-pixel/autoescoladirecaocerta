@@ -84,9 +84,16 @@ export const COMPANY_DATA = {
     local: '/hero.jpg',
     alt: 'Autoescola Direção Certa Maceió',
   },
+  heroDesktopMedia: {
+    sourceUrl: 'https://ibb.co/0pWDXCxG',
+    directUrl: 'https://i.ibb.co/mrYDB93c/A5-E58-C9-F-B55-B-41-D6-A873-C04-C60-A5-CDC6.png',
+    local: '/hero_desktop.png',
+    alt: 'Autoescola Direção Certa Maceió - Banner Oficial',
+  },
 };
 
 export const HERO_MEDIA_URL = 'https://ibb.co/20kFDtVq';
+export const HERO_DESKTOP_MEDIA_URL = 'https://ibb.co/0pWDXCxG';
 
 // Serviços oficiais da Autoescola Direção Certa
 export const OFFICIAL_SERVICES: ServiceItem[] = [

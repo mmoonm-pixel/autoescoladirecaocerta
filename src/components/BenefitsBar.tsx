@@ -52,7 +52,7 @@ export const BenefitsBar: React.FC = () => {
     <section className="relative w-full bg-[#050202] py-8 sm:py-10 border-b border-[#F2C143]/20 select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* CARROSSEL DE BENEFÍCIOS: 1 por vez no mobile com swipe/drag, 5 no desktop */}
+        {/* CARROSSEL DE BENEFÍCIOS: sem efeito de seleção, mantendo animação de navegação */}
         <div className="relative">
           <div
             ref={scrollRef}
@@ -62,6 +62,7 @@ export const BenefitsBar: React.FC = () => {
           >
             {BENEFITS_LIST.map((benefit, index) => {
               const Icon = ICONS[index % ICONS.length];
+
               return (
                 <div
                   key={benefit.headline}

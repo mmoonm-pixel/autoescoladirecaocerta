@@ -15,7 +15,6 @@ export const ServicesCarousel: React.FC = () => {
     setCanScrollLeft(scrollLeft > 10);
     setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
 
-    // Calculate active slide index
     const card = scrollRef.current.querySelector('[data-service-card]') as HTMLElement;
     if (card) {
       const cardWidth = card.offsetWidth + 16;
@@ -34,7 +33,7 @@ export const ServicesCarousel: React.FC = () => {
     if (cards[index]) {
       (cards[index] as HTMLElement).scrollIntoView({
         behavior: 'smooth',
-        inline: 'start',
+        inline: 'center',
         block: 'nearest',
       });
     }
@@ -103,7 +102,7 @@ export const ServicesCarousel: React.FC = () => {
           </div>
         </div>
 
-        {/* Carrossel de Cards: ~3 no desktop, 1 no mobile, swipe/drag fluido */}
+        {/* Carrossel de Cards Original */}
         <div
           ref={scrollRef}
           onScroll={checkScroll}
