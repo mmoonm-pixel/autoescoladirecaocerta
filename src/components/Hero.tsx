@@ -15,14 +15,14 @@ export const Hero: React.FC<HeroProps> = () => {
   return (
     <section
       id="inicio"
-      className="relative w-full bg-[#0D0F14] text-[#F5F5EE] pt-16 sm:pt-20 pb-8 sm:pb-12 select-none overflow-hidden flex flex-col items-center justify-center"
+      className="relative w-full bg-[#0D0F14] text-[#F5F5EE] pt-16 sm:pt-20 lg:pt-[76px] pb-8 sm:pb-12 lg:pb-0 select-none overflow-hidden flex flex-col items-center justify-center p-0 m-0"
     >
-      {/* Iluminação sutil estática */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
+      {/* Iluminação sutil estática para mobile */}
+      <div className="absolute inset-0 pointer-events-none opacity-20 lg:hidden">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[650px] rounded-full bg-[#F2C143] blur-[160px]" />
       </div>
 
-      <div className="w-full relative z-10 flex flex-col items-center">
+      <div className="w-full relative z-10 flex flex-col items-center p-0 m-0">
         
         {/* ========================================================
             VERSÃO MOBILE (< 1024px): 100% PRESERVADA (SEM ALTERAÇÕES)
@@ -62,43 +62,35 @@ export const Hero: React.FC<HeroProps> = () => {
         </div>
 
         {/* ========================================================
-            VERSÃO DESKTOP (>= 1024px): NOVO BANNER COMPLETO
-            Referência visual: https://ibb.co/0pWDXCxG
-            - Proporcional, sem distorções, sem cortes nos elementos principais
-            - Logo, textos, carro e motocicleta 100% visíveis
-            - Limpo, sem textos sobrepostos e sem botões cobrindo o banner
-            - Clicável para WhatsApp com transição suave
+            VERSÃO DESKTOP (>= 1024px): 100% DA LARGURA (100vw), DE PONTA A PONTA
+            - Ocupa 100% da largura disponível da tela, de ponta a ponta
+            - Sem bordas pretas, margens laterais, padding ou max-width
+            - Proporção original preservada com width: 100% e height: auto
+            - Sem cortes no logotipo, textos, carro e motocicleta
+            - Sem bordas, cantos arredondados, sombras, degradês ou sobreposições
+            - Clicável diretamente para WhatsApp
             ======================================================== */}
-        <div className="hidden lg:flex flex-col items-center w-full max-w-[1440px] px-6 xl:px-8">
+        <div className="hidden lg:block w-full p-0 m-0">
           <a
             href={WHATSAPP_HERO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Iniciar habilitação na Autoescola Direção Certa pelo WhatsApp"
-            className="w-full block relative overflow-hidden rounded-2xl group cursor-pointer transition-all duration-300 hover:shadow-[0_20px_50px_rgba(242,193,67,0.18)]"
+            aria-label="Falar com a Autoescola Direção Certa pelo WhatsApp"
+            className="w-full block p-0 m-0 cursor-pointer"
           >
-            <div
-              className="w-full aspect-[1672/941] bg-cover bg-center bg-no-repeat rounded-2xl shadow-2xl relative overflow-hidden"
-              style={{
-                backgroundImage: `url(${COMPANY_DATA.heroDesktopMedia?.directUrl || '/hero_desktop.png'}), url('/hero_desktop.png')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
+            <img
+              src={COMPANY_DATA.heroDesktopMedia?.directUrl || '/hero_desktop.png'}
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                if (target.src !== window.location.origin + '/hero_desktop.png') {
+                  target.src = '/hero_desktop.png';
+                }
               }}
-            >
-              {/* Tag de imagem para acessibilidade, SEO e renderização garantida */}
-              <img
-                src={COMPANY_DATA.heroDesktopMedia?.directUrl || '/hero_desktop.png'}
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  if (target.src !== window.location.origin + '/hero_desktop.png') {
-                    target.src = '/hero_desktop.png';
-                  }
-                }}
-                alt={COMPANY_DATA.heroDesktopMedia?.alt || 'Autoescola Direção Certa - Banner Oficial Desktop'}
-                className="w-full h-full object-cover rounded-2xl select-none"
-                loading="eager"
-              />
-            </div>
+              alt={COMPANY_DATA.heroDesktopMedia?.alt || 'Autoescola Direção Certa - Banner Oficial Desktop'}
+              className="w-full h-auto block select-none p-0 m-0"
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+              loading="eager"
+            />
           </a>
         </div>
 
